@@ -1,0 +1,69 @@
+package sk.itsovy.petrova.ITSovy;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+
+public class Student {
+    private String firstName;
+    private String lastName;
+    private int[] birthDate;
+    private ArrayList<String> subjects=new ArrayList<String>();
+
+    public Student(String name, String lastName, int[] birthDay) {
+        this.firstName = name;
+        this.lastName = lastName;
+        this.birthDate = birthDay;
+    }
+
+    public String getName() {
+
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public int[] getBirthDate() {
+        return birthDate;
+    }
+
+    public int getBirthMonth(){
+        return birthDate[4];
+    }
+
+    public int getBirthYear() {
+        Calendar cal = Calendar.getInstance();
+        int year = cal.get(Calendar.YEAR);
+        return year;
+    }
+
+    public void addSubject(String subject){
+        subjects.add(subject);
+        System.out.println(subject);
+    }
+
+    public void removeSubject(String subject){
+        subjects.remove(subject);
+    }
+
+    @Override
+    public String toString() {
+        return firstName + " " + lastName;
+    }
+
+    public boolean getZodiacSign(){
+
+        return true;
+    }
+
+    public void printSubjects(){
+        for(String subject:subjects){
+            System.out.println(subject);
+        }
+    }
+
+    public boolean hasSubject(String subject){
+        return subjects.contains(subject);
+    }
+}
